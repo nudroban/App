@@ -1,0 +1,17 @@
+<div class="center jumbotron">
+  <% if user_signed_in? %>
+    <h1 align="center">Welcome to the Clinic App</h1>
+    <h3 align="center">
+      This is the home page for the ClinicApp sample application.
+    </h3>
+    <img src="clinic.jpg", class="container">
+  <% else %>
+    <h1 align="center">Welcome to the Clinic App</h1>
+    <div class="container">
+      <%= link_to 'Login', new_user_session_path, class: "btn btn-primary" %> |
+      <%= link_to 'Sign up', new_user_registration_path, class: "btn btn-primary" %>
+    </div>
+    <% end %>
+</div>
+
+

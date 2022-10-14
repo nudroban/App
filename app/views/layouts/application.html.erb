@@ -11,8 +11,10 @@
   </head>
 
   <body>
-  <%= render 'static_pages/header' %>
+  <%= render 'home_pages/header' %>
   <div class="container">
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
     <%= yield %>
   </div>
   </body>
