@@ -1,3 +1,6 @@
 Rails.application.routes.draw do
-  root 'static_pages#home'
+  devise_for :users do
+    get '/users/sign_out' => 'devise/sessions#destroy'
+  end
+  root 'home_pages#index'
 end
