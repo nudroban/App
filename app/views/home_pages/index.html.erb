@@ -1,6 +1,12 @@
 <div class="center jumbotron">
-  <% if user_signed_in? %>
-    <h1 align="center">Welcome to the Clinic App</h1>
+  <% if user_signed_in? && current_user.patient? %>
+    <h1 align="center">Welcome Dear Patient</h1>
+    <h3 align="center">
+      This is the home page for the ClinicApp sample application.
+    </h3>
+    <img src="qwerty.jpg", class="container">
+    <% elsif user_signed_in? && current_user.doctor? %>
+    <h1 align="center">Welcome Dear DOCTOR</h1>
     <h3 align="center">
       This is the home page for the ClinicApp sample application.
     </h3>

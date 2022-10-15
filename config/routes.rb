@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  devise_for :users do
-    get '/users/sign_out' => 'devise/sessions#destroy'
-  end
+  devise_for :user, controllers: {
+    registrations: 'patients/registrations'
+  }
   root 'home_pages#index'
 end
