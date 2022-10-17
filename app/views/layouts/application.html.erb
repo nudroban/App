@@ -13,8 +13,13 @@
   <body>
   <%= render 'home_pages/header' %>
   <div class="container">
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    <div class="notice-msg">
+      <% if flash.notice %>
+        <p class="notice"><%= notice %></p>
+      <% elsif flash.alert %>
+        <p class="alert"><%= alert %></p>
+      <% end %>
+    </div>
     <%= yield %>
   </div>
   </body>
