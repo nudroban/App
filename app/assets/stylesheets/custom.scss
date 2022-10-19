@@ -27,15 +27,14 @@ textarea {
   float: left;
   margin-right: 10px;
   font-size: 1.7em;
-  color: #fff;
+  color: #999999;
   text-transform: uppercase;
   letter-spacing: -1px;
-  padding-top: 9px;
   font-weight: bold;
 }
 
 #logo:hover {
-  color: #fff;
+  color: bisque;
   text-decoration: none;
 }
 
@@ -63,3 +62,64 @@ p {
   font-size: 1.1em;
   line-height: 1.7em;
 }
+/* form and other */
+
+.signUp {
+  padding-top: 10px;
+}
+
+.logo {
+  width: auto;
+  height: 50px;
+}
+
+.notice-msg {
+  text-align: center;
+  padding: 6px;
+  max-width: content-box;
+}
+
+.notice {
+  background: lightgreen;
+  color: white;
+  font-size: 18px;
+  border-radius: 5px;
+}
+
+.alert {
+  background: lightcoral;
+  color: white;
+  font-size: 18px;
+  border-radius: 5px;
+}
+
+#error_explanation{
+  background: #f23551;
+  color: #fff;
+  border-radius: 4px;
+  margin-bottom: 20px;
+  h2{
+    padding: 20px;
+    margin: 0;
+    font-size: 20px;
+  }
+  ul{
+    background: #fff;
+    color: #e5324a;
+    border: 1px solid #F23551;
+    margin: 0;
+    list-style: none;
+    padding: 14px 0;
+    li{
+      padding: 4px 20px;
+      &:before {
+        content: '×';
+        font-weight: bold;
+        font-size: 12px;
+        margin-right: 10px;
+      }
+    }
+  }
+}
+
+
