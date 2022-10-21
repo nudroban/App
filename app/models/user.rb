@@ -2,7 +2,7 @@
 
 class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable, authentication_keys: [:login]
+         :recoverable, :rememberable, :validatable, authentication_keys: [:phone]
 
   VALID_PHONE = /\A(?:\+?\d{1,3}\s*-?)?\(?(?:\d{3})?\)?[- ]?\d{3}[- ]?\d{4}\z/
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
@@ -16,18 +16,4 @@ class User < ApplicationRecord
 
   has_many :appointments
   has_many :doctors, through: :appointments
-
-  attr_writer :login
-
-  def login
-    @login || phone
-  end
-
-  def self.find_for_database_authentication(warden_conditions)
-    conditions = warden_conditions.dup
-    if (login = conditions.delete(:login))
-      where(conditions.to_h).where(['lower(phone) = :value',
-                                    { value: login.downcase }]).first
-    end
-  end
 end
