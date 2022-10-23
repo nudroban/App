@@ -1,0 +1,4 @@
+<div class="center cracker1-button">
+  <h1><%= "Dr. #{@doctor.name}" %></h1>
+  <%= button_to 'Create Appointment', appointments_path(@doctor), class: "btn btn-success", method: :post %>
+</div>

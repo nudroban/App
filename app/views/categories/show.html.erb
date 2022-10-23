@@ -1,0 +1,6 @@
+<div class="center cracker1-button">
+  <h1><%= "#{@category.name.capitalize}s" %></h1>
+  <% @doctors.each do |doctor| %>
+    <%= link_to doctor.name, doctor_path(doctor) %>
+  <% end %>
+</div>
