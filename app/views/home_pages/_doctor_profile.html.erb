@@ -1,0 +1,12 @@
+<div class="container">
+  <h1 align="center">Welcome Dr.<%= current_doctor.name %></h1>
+  <div class="btn-group btn-group-lg cracker1-button">
+    <%= link_to 'My Appointments', appointments_path(current_doctor), class: 'btn btn-info' %>
+  </div>
+</div>
+
+<br>
+
+<div class="container">
+  <%= image_tag('harold.png') %>
+</div>

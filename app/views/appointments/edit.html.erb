@@ -1,0 +1,5 @@
+<%= form_with(model: @appointment) do |form| %>
+  <%= form.label :recomendation, "Recommendations:" %>
+  <%= form.text_field :recomendation %>
+  <%= form.submit "Submit" %>
+<% end %>

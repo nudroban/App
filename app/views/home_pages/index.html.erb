@@ -1,14 +1,9 @@
 <div class="center jumbotron">
   <% if user_signed_in? %>
-    <h1 align="center">Welcome Patient</h1>
-    <h3 align="center">
-      This is the home page for the ClinicApp sample application.
-    </h3>
-    <img src="clinic.jpg", class="container">
-    <% elsif doctor_signed_in? %>
-    <h1 align="center">Welcome Doctor <%= current_doctor.email %></h1>
-    <img src="clinic.jpg", style='height: 100%; width: 100%;'/>
-    <% else %>
+    <%= render 'user_profile' %>
+  <% elsif doctor_signed_in? %>
+    <%= render 'doctor_profile' %>
+  <% else %>
     <h1 align="center">Welcome to the Clinic App</h1>
     <h2>Please select the user you want to login with</h2>
     <div class="container">
@@ -16,7 +11,7 @@
       <%= link_to 'Patient', new_user_session_path, class: "btn btn-primary" %> |
       <%= link_to 'New User', new_user_registration_path, class: "btn btn-primary" %>
     </div>
-    <% end %>
+  <% end %>
 </div>
 
 

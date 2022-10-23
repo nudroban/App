@@ -1,0 +1,26 @@
+<h1>My Appointments</h1>
+<div class="container center cracker1-button">
+  <table>
+    <thead>
+    <tr>
+      <th class="center">Doctor</th>
+      <th class="center">Appointments</th>
+      <th class="center">Recomendations</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+    <% @user_appointments.each do |appointment| %>
+      <% if appointment.active == false %>
+        <td style="font-size: large">Dr. <%= appointment.doctor.name %></td>
+        <td style="background-color: lightgreen">Active</td>
+      <% else %>
+        <td style="font-size: large">Dr. <%= appointment.doctor.name %></td>
+        <td style="background-color: lightcoral">Closed</td>
+        <td style="font-family: 'Century Schoolbook L'"><%= link_to 'Look Recomendation', appointment_path(appointment), class: 'btn' %></td>
+      <% end %>
+    </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>
