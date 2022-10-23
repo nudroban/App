@@ -1,6 +1,6 @@
 class AppointmentsController < ApplicationController
   before_action :authenticate_user!, only: [:create, :show]
-  before_action :authenticate_doctor!, only: [:update, :show]
+  before_action :authenticate_doctor!, only: [:update, :index]
 
   def new
 
@@ -18,9 +18,11 @@ class AppointmentsController < ApplicationController
   end
 
   def index
-    user = current_user
     doctor = current_doctor
-
     @doctors_appointments = doctor.appointments
+  end
+
+  def show
+    @appointment = Appointment.find(params[:id])
   end
 end
