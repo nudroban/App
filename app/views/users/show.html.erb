@@ -8,19 +8,19 @@
       <th class="center">Recomendations</th>
     </tr>
     </thead>
+    <tbody>
+    <tr>
     <% @user_appointments.each do |appointment| %>
-      <% if appointment.active == true %>
-    <tr>
-      <td style="font-size: large">Dr. <%= appointment.doctor.name %></td>
-      <td style="background-color: lightgreen">Active</td>
-    </tr>
+      <% if appointment.active == false %>
+        <td style="font-size: large">Dr. <%= appointment.doctor.name %></td>
+        <td style="background-color: lightgreen">Active</td>
       <% else %>
-    <tr>
-      <td style="font-size: large">Dr. <%= appointment.doctor.name %></td>
-      <td style="background-color: lightcoral">Closed</td>
-      <td style="font-family: 'Century Schoolbook L'"><%= link_to 'Look Recomendation', appointment_path(appointment), class: 'btn' %></td>
-    </tr>
+        <td style="font-size: large">Dr. <%= appointment.doctor.name %></td>
+        <td style="background-color: lightcoral">Closed</td>
+        <td style="font-family: 'Century Schoolbook L'"><%= link_to 'Look Recomendation', appointment_path(appointment), class: 'btn' %></td>
       <% end %>
+    </tr>
     <% end %>
+    </tbody>
   </table>
 </div>
