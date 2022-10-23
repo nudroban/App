@@ -1,6 +1,6 @@
 class AppointmentsController < ApplicationController
-  before_action :authenticate_user!, only: [:create]
-  before_action :authenticate_doctor!, only: [:edit, :index, :show]
+  before_action :authenticate_user!, only: [:create, :show]
+  before_action :authenticate_doctor!, only: [:edit, :index]
 
   def create
     user = current_user
