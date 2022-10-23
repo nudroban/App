@@ -4,6 +4,16 @@ class Ability
   include CanCan::Ability
 
   def initialize(user)
+    user ||= User.new # guest user (not logged in)
+    case user
+    when User
+      can :manage, Appointment
+    when Doctor
+      can :manage, Appointment
+      can :manage, Doctor
+    else
+      can :read, Appointment
+    end
     # Define abilities for the user here. For example:
     #
     #   return unless user.present?

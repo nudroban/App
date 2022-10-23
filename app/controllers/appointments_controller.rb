@@ -1,29 +1,25 @@
+# frozen_string_literal: true
 class AppointmentsController < ApplicationController
-  before_action :authenticate_user!, only: [:create, :show]
-  before_action :authenticate_doctor!, only: [:edit, :index]
-
+  before_action :set_appointment, only: %i[edit update show]
   def create
-    user = current_user
-    doctor = Doctor.find_by(params[:doctor_id])
-    if doctor.appointments.where(active: false).count < 10
-      user.doctors << doctor
-      redirect_to root_path, notice: "Success!!! Appointment create"
+    doctor = Doctor.find(params[:doctor_id])
+    if doctor.appointments.where(active: false).count >= 10
+      redirect_to categories_path, alert: 'Sorry! Doctor was buzy!'
     else
-      redirect_to categories_path, alert: "Sorry! Doctor was buzy!"
+      @appointment = current_user.appointments.create(doctor_id: params[:doctor_id])
+      redirect_to root_path, notice: 'Success!!! Appointment create'
     end
   end
 
   def edit
-    @appointment = Appointment.find(params[:id])
-  end
 
+  end
   def update
     doctor = current_doctor
-    @appointment = Appointment.find(params[:id])
     @appointment.change_state
     if @appointment.update(recomendation: params[:appointment][:recomendation])
-      flash[:notice] = "Recommendation was successfully created"
-      redirect_to appointments_path(doctor)
+      flash[:notice] = 'Recommendation was successfully created'
+      redirect_to doctor_appointments_path(doctor)
     else
       render :show
     end
@@ -35,6 +31,12 @@ class AppointmentsController < ApplicationController
   end
 
   def show
+
+  end
+  
+  private
+  
+  def set_appointment
     @appointment = Appointment.find(params[:id])
   end
 end

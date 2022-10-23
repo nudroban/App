@@ -1,1 +1,7 @@
-<%= @appointment.recomendation %>
+<h1>Recomendation</h1>
+<div class="container">
+  <h2><%= @appointment.recomendation %></h2>
+  <div class="center cracker1-button">
+    <%= link_to 'Back', user_path(current_user), class: 'btn btn-primary' %>
+  </div>
+</div>

@@ -7,9 +7,10 @@ Rails.application.routes.draw do
   end
   root 'home_pages#index'
 
-  resources :appointments
   resources :categories
-  resources :doctors
+  resources :doctors do
+    resources :appointments, only: [:create, :index]
+  end
+  resources :appointments
   resources :users
-
 end
