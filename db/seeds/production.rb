@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 ActiveRecord::Base.transaction do
-  AdminUser.create!(email: 'admin@mail.ua', phone: '0507387960', password: 'password')
+  AdminUser.create!(email: 'adminadmin@mail.ua', phone: '0507387961', password: 'password')
   categories = %w[dantist therapevt family-doctor lor]
   categories.each do |category|
     Category.create!(name: "#{category}")
