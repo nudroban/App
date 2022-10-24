@@ -4,4 +4,4 @@ Testing app for clinic management
 *To connect admin path enter:
 phone: 0507387900
 password: password
-for developing change file config/database.yml.example to database.yml and conect to your database
+For developing change file config/database.yml.example to database.yml and conect to your database
